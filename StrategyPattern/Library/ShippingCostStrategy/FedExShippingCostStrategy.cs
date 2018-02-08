@@ -1,13 +1,9 @@
-﻿using StrategyPattern.Library.ShippingCostStrategy;
-using StrategyPattern.Model;
+﻿using StrategyPattern.Interfaces.Model;
 
-namespace StrategyPattern.Library
+namespace StrategyPattern.Interfaces.Library.ShippingCostStrategy
 {
 	public class FedExShippingCostStrategy : IShippingCostStrategy
 	{
-		public double Cost(Order order)
-		{
-			return 5.00d;
-		}
+		public double Cost(Order order) => 5.00d;
 	}
-}
+} 

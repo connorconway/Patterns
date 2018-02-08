@@ -1,7 +1,7 @@
-﻿using StrategyPattern.Library.ShippingCostStrategy;
-using StrategyPattern.Model;
+﻿using StrategyPattern.Interfaces.Library.ShippingCostStrategy;
+using StrategyPattern.Interfaces.Model;
 
-namespace StrategyPattern.Library
+namespace StrategyPattern.Interfaces.Library
 {
 	public class ShippingCostCalculator
 	{

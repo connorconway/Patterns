@@ -1,6 +1,6 @@
-﻿using StrategyPattern.Interfaces.Model;
+﻿using StrategyPattern.Functions.Model;
 
-namespace StrategyPattern.Interfaces.Tests
+namespace StrategyPattern.Functions.Tests
 {
 	public static class Mother
 	{

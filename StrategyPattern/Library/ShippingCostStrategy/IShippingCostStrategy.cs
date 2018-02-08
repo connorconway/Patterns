@@ -1,6 +1,6 @@
-﻿using StrategyPattern.Model;
+﻿using StrategyPattern.Interfaces.Model;
 
-namespace StrategyPattern.Library.ShippingCostStrategy
+namespace StrategyPattern.Interfaces.Library.ShippingCostStrategy
 {
 	public interface IShippingCostStrategy
 	{

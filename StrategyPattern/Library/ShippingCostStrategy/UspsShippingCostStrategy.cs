@@ -1,12 +1,9 @@
-﻿using StrategyPattern.Model;
+﻿using StrategyPattern.Interfaces.Model;
 
-namespace StrategyPattern.Library.ShippingCostStrategy
+namespace StrategyPattern.Interfaces.Library.ShippingCostStrategy
 {
 	public class UspsShippingCostStrategy : IShippingCostStrategy
 	{
-		public double Cost(Order order)
-		{
-			return 3.00d;
-		}
+		public double Cost(Order order) => 3.00d;
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace StrategyPattern.Interfaces.Model
+﻿namespace StrategyPattern.Functions.Model
 {
 	public class Order
 	{
