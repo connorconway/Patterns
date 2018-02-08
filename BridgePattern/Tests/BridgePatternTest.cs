@@ -10,15 +10,16 @@ namespace BridgePattern.Tests
 		[Test]
 		public void Test()
 		{
-			var documents = new List<IManuscript>();
+			var documents = new List<Manuscript>();
+			var formatter = new BackwardsFormatter();
 
-			var faq = new Faq {Questions = new Dictionary<string, string> {{"A", "1"}, {"B", "2"}}};
+			var faq = new Faq(formatter) {Title = "FAQ Title", Questions = new Dictionary<string, string> {{"A", "1"}, {"B", "2"}}};
 			documents.Add(faq);
 
-			var book = new Book {Author = "Connor", Text = "This book....", Title = "Amazing Book"};
+			var book = new Book(formatter) {Author = "Author Connor", Text = "Book Text", Title = "Book Title"};
 			documents.Add(book);
 
-			var paper = new TermPaper {Class = "21", References = "All of them", Student = "Connor", Text = "WOW"};
+			var paper = new TermPaper(formatter) {Class = "Author Class", References = "Paper References", Student = "Paper Author", Text = "Paper Text"};
 			documents.Add(paper);
 
 			foreach (var doc in documents)

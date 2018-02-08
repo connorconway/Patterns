@@ -2,16 +2,24 @@
 
 namespace BridgePattern.Model
 {
-	public class TermPaper : IManuscript
+	public class TermPaper : Manuscript
 	{
+		public TermPaper(IFormatter formatter) : base(formatter)
+		{
+		}
+
 		public string Class { get; set; }
 		public string Student { get; set; }
 		public string Text { get; set; }
 		public string References { get; set; }
 
-		public void Print()
+		public override void Print()
 		{
-			Console.WriteLine($"{Class} {Student} {Text} {References}");
+			Console.WriteLine(Formatter.Format(Class));
+			Console.WriteLine(Formatter.Format(Student));
+			Console.WriteLine(Formatter.Format(Text));
+			Console.WriteLine(Formatter.Format(References));
+			Console.WriteLine();
 		}
 	}
 }
