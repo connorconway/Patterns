@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC246B7A-4312-413C-AC84-740AE6291A37}</ProjectGuid>
+    <ProjectGuid>{6C4A3418-5D57-4F45-B7C7-2D792C691F3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StrategyPattern.Functions</RootNamespace>
-    <AssemblyName>StrategyPattern.Functions</AssemblyName>
+    <RootNamespace>BridgePattern</RootNamespace>
+    <AssemblyName>BridgePattern</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\ShippingCostCalculator.cs" />
-    <Compile Include="Model\Order.cs" />
+    <Compile Include="Library\BridgePattern.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\FAQ.cs" />
+    <Compile Include="Model\IManuscript.cs" />
+    <Compile Include="Model\TermPaper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\BridgePatternTest.cs" />
     <Compile Include="Tests\Mother.cs" />
-    <Compile Include="Tests\ShippingCostCalculatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
