@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Library\ShippingCostStrategy\FedExShippingCostStrategy.cs" />
+    <Compile Include="Library\ShippingCostStrategy\IShippingCostStrategy.cs" />
+    <Compile Include="Library\ShippingCostStrategy\UpsShippingCostStrategy.cs" />
+    <Compile Include="Library\ShippingCostStrategy\UspsShippingCostStrategy.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Library\ShippingCostCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

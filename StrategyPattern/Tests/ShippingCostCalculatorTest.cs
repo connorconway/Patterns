@@ -1,15 +1,17 @@
 ﻿using NUnit.Framework;
 using StrategyPattern.Library;
+using StrategyPattern.Library.ShippingCostStrategy;
 
 namespace StrategyPattern.Tests
 {
 	[TestFixture]
-	class ShippingCostCalculatorTest
+	internal class ShippingCostCalculatorTest
 	{
 		[Test]
 		public void Shippiong_via_Ups()
 		{
-			var calc = new ShippingCostCalculator();
+			var strategy = new UpsShippingCostStrategy();
+			var calc = new ShippingCostCalculator(strategy);
 			var order = Mother.CreateOrder_UPS();
 			var cost = calc.Cost(order);
 			Assert.AreEqual(4.25d, cost);
@@ -18,7 +20,8 @@ namespace StrategyPattern.Tests
 		[Test]
 		public void Shippiong_via_Usps()
 		{
-			var calc = new ShippingCostCalculator();
+			var strategy = new UspsShippingCostStrategy();
+			var calc = new ShippingCostCalculator(strategy);
 			var order = Mother.CreateOrder_USPS();
 			var cost = calc.Cost(order);
 			Assert.AreEqual(3,00d, cost);
@@ -27,7 +30,8 @@ namespace StrategyPattern.Tests
 		[Test]
 		public void Shipping_Via_FedEx()
 		{
-			var calc = new ShippingCostCalculator();
+			var strategy = new FedExShippingCostStrategy();
+			var calc = new ShippingCostCalculator(strategy);
 			var order = Mother.CreateOrder_FedEx();
 			var cost = calc.Cost(order);
 			Assert.AreEqual(5,00d, cost);
