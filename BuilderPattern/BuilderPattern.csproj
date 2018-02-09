@@ -43,16 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\SandwichBuilder.cs" />
+    <Compile Include="Library\DifferentSandwichBuilder.cs" />
+    <Compile Include="Library\MySandwichBuilder.cs" />
+    <Compile Include="Library\SandwichMaker.cs" />
     <Compile Include="Model\BreadType.cs" />
     <Compile Include="Model\CheeseType.cs" />
     <Compile Include="Model\MeatType.cs" />
     <Compile Include="Model\Sandwich.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\BuilderPatternTest.cs" />
+    <Compile Include="Tests\SandwichBuilderTest.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Library\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

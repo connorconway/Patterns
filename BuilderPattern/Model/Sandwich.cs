@@ -5,37 +5,26 @@ namespace BuilderPattern.Model
 {
 	public class Sandwich
 	{
-		private readonly BreadType _breadType;
-		private readonly bool _isToasted;
-		private readonly CheeseType _cheeseType;
-		private readonly MeatType _meatType;
-		private readonly bool _hasMustard;
-		private readonly bool _hasMayo;
-		private readonly List<string> _vegetables;
-
-		public Sandwich(BreadType breadType, bool isToasted, CheeseType cheeseType, MeatType meatType, bool hasMustard, bool hasMayo, List<string> vegetables)
-		{
-			_breadType = breadType;
-			_isToasted = isToasted;
-			_cheeseType = cheeseType;
-			_meatType = meatType;
-			_hasMustard = hasMustard;
-			_hasMayo = hasMayo;
-			_vegetables = vegetables;
-		}
+		public BreadType BreadType { private get; set; }
+		public bool IsToasted { private get; set; }
+		public CheeseType CheeseType { private get; set; }
+		public MeatType MeatType { private get; set; }
+		public bool HasMustard { private get; set; }
+		public bool HasMayo { private get; set; }
+		public List<string> Vegetables { private get; set; }
 
 		public void Display()
 		{
-			Console.WriteLine($"Sandwich: {_breadType}");
-			if (_isToasted)
+			Console.WriteLine($"Sandwich: {BreadType}");
+			if (IsToasted)
 				Console.WriteLine("Toasted");
-			if (_hasMayo)
+			if (HasMayo)
 				Console.WriteLine("With Mayo");
-			if (_hasMustard)
+			if (HasMustard)
 				Console.WriteLine("With Mustard");
-			Console.WriteLine($"Meat: {_meatType}");
-			Console.WriteLine($"Cheese: {_cheeseType}");
-			foreach (var vegetable in _vegetables)
+			Console.WriteLine($"Meat: {MeatType}");
+			Console.WriteLine($"Cheese: {CheeseType}");
+			foreach (var vegetable in Vegetables)
 				Console.WriteLine($"Vegetable: {vegetable}");
 		}
 	}
