@@ -1,14 +1,16 @@
-﻿namespace BridgePattern.Model
+﻿using BridgePattern.Library.Formatters;
+
+namespace BridgePattern.Model
 {
 	public abstract class Manuscript
 	{
 		protected readonly IFormatter Formatter;
 
-		public Manuscript(IFormatter formatter)
+		protected Manuscript(IFormatter formatter)
 		{
 			this.Formatter = formatter;
 		}
 
-		abstract public void Print();
+		public abstract void Print();
 	}
 }

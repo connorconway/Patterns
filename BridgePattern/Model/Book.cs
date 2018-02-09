@@ -1,4 +1,5 @@
 ﻿using System;
+using BridgePattern.Library.Formatters;
 
 namespace BridgePattern.Model
 {

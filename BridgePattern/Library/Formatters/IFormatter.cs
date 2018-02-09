@@ -1,4 +1,4 @@
-﻿namespace BridgePattern.Model
+﻿namespace BridgePattern.Library.Formatters
 {
 	public interface IFormatter
 	{

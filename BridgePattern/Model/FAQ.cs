@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using BridgePattern.Library.Formatters;
 
 namespace BridgePattern.Model
 {
@@ -17,9 +17,7 @@ namespace BridgePattern.Model
 		{
 			Console.WriteLine(Formatter.Format(Title));
 			foreach (var question in Questions)
-			{
 				Console.WriteLine(Formatter.Format(question.Key + " : " + question.Value));
-			}
 			Console.WriteLine();
 		}
 	}
