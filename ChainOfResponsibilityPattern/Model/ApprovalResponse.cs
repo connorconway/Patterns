@@ -1,4 +1,4 @@
-﻿namespace ChainOfResponsibilityPattern.Library
+﻿namespace ChainOfResponsibilityPattern.Model
 {
 	public enum ApprovalResponse
 	{

@@ -43,13 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\ApprovalResponse.cs" />
+    <Compile Include="Library\EndOfChainExpenseHander.cs" />
+    <Compile Include="Model\ApprovalResponse.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\ExpenseReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Library\IExpenseApprover.cs" />
     <Compile Include="Model\IExpenseReport.cs" />
     <Compile Include="Tests\ExpenseApprovalTest.cs" />
+    <Compile Include="Library\ExpenseHandler.cs" />
+    <Compile Include="Library\IExpenseHandler.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

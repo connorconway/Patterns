@@ -25,32 +25,32 @@ namespace ChainOfResponsibilityPattern.Tests
 		[Test]
 		public void Expense1000ShouldBeApprovedByMickey()
 		{
-			IExpenseReport report = new ExpenseReport(1000);
-			ApprovalResponse response = _initialApprover.Approve(report);
+			var report = new ExpenseReport(1000);
+			var response = _initialApprover.Approve(report);
 			Assert.AreEqual(ApprovalResponse.Approved, response);
 		}
 
 		[Test]
 		public void Expense4900ShouldBeApprovedByGoofy()
 		{
-			IExpenseReport report = new ExpenseReport(4900);
-			ApprovalResponse response = _initialApprover.Approve(report);
+			var report = new ExpenseReport(4900);
+			var response = _initialApprover.Approve(report);
 			Assert.AreEqual(ApprovalResponse.Approved, response);
 		}
 
 		[Test]
 		public void Expense5100ShouldBeApprovedByDaisy()
 		{
-			IExpenseReport report = new ExpenseReport(5100);
-			ApprovalResponse response = _initialApprover.Approve(report);
+			var report = new ExpenseReport(5100);
+			var response = _initialApprover.Approve(report);
 			Assert.AreEqual(ApprovalResponse.Approved, response);
 		}
 
 		[Test]
 		public void Expense11000ShouldNotBeApproved()
 		{
-			IExpenseReport report = new ExpenseReport(11000);
-			ApprovalResponse response = _initialApprover.Approve(report);
+			var report = new ExpenseReport(11000);
+			var response = _initialApprover.Approve(report);
 			Assert.AreEqual(ApprovalResponse.Denied, response);
 		}
 	}

@@ -1,7 +1,6 @@
-﻿using ChainOfResponsibilityPattern.Library;
-using ChainOfResponsibilityPattern.Model;
+﻿using ChainOfResponsibilityPattern.Model;
 
-namespace ChainOfResponsibilityPattern.Tests
+namespace ChainOfResponsibilityPattern.Library
 {
 	internal class ExpenseHandler : IExpenseHandler
 	{
@@ -11,6 +10,7 @@ namespace ChainOfResponsibilityPattern.Tests
 		public ExpenseHandler(IExpenseApprover approver)
 		{
 			_approver = approver;
+			_next = EndOfChainExpenseHander.Instance;
 		}
 
 		public ApprovalResponse Approve(IExpenseReport report)

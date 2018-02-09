@@ -1,7 +1,6 @@
-﻿using ChainOfResponsibilityPattern.Library;
-using ChainOfResponsibilityPattern.Model;
+﻿using ChainOfResponsibilityPattern.Model;
 
-namespace ChainOfResponsibilityPattern.Tests
+namespace ChainOfResponsibilityPattern.Library
 {
 	internal interface IExpenseHandler
 	{
