@@ -7,6 +7,11 @@
 		StraightFlush,
 		Pair,
 		FourOfAKind,
-		HighCard
+		HighCard,
+		FullHouse,
+		Flush,
+		Straight,
+		ThreeOfAKind,
+		TwoPair
 	}
 }
