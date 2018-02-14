@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\CommandParser.cs" />
+    <Compile Include="Library\Commands\CreateOrderCommand.cs" />
+    <Compile Include="Library\Commands\ICommand.cs" />
+    <Compile Include="Library\Commands\ShipOrderCommand.cs" />
+    <Compile Include="Library\Commands\UpdateQuantityCommand.cs" />
     <Compile Include="Tests\CommandExecutorTest.cs" />
     <Compile Include="Library\CommandExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Library\Commands\ICommandFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

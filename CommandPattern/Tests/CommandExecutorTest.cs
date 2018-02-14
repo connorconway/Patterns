@@ -1,4 +1,6 @@
-﻿using CommandPattern.Library;
+﻿using System.Collections.Generic;
+using CommandPattern.Library;
+using CommandPattern.Library.Commands;
 using NUnit.Framework;
 
 namespace CommandPattern.Tests
@@ -7,10 +9,33 @@ namespace CommandPattern.Tests
     public class CommandExecutorTest
     {
 	    [Test]
-	    public void ToDo()
+	    public void CreateOrder()
 	    {
-		    var executor = new CommandExecutor();
-			executor.ExecuteCommand(new [] { "UpdateQuantity" , "10"});
+		    var availableCommands = GetAvailableCommands();
+		    var parser = new CommandParser(availableCommands);
+		    var command = parser.ParseCommand(new[] { "UpdateQuantity", "20" });
+
+		    command.Execute();
+	    }
+
+	    [Test]
+	    public void UpdateQuantity()
+	    {
+		    var availableCommands = GetAvailableCommands();
+			var parser = new CommandParser(availableCommands);
+		    var command = parser.ParseCommand(new [] {"UpdateQuantity", "20"});
+
+		    command.Execute();
+	    }
+
+	    private IEnumerable<ICommandFactory> GetAvailableCommands()
+	    {
+		    return new ICommandFactory[]
+		    {
+				new CreateOrderCommand(),
+				new UpdateQuantityCommand(),
+				new ShipOrderCommand()
+		    };
 	    }
     }
 }

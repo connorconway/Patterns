@@ -1,4 +1,4 @@
-﻿namespace CommandPattern.Library
+﻿namespace CommandPattern.Library.Commands
 {
 	public interface ICommand
 	{
