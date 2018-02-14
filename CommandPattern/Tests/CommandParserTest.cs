@@ -18,8 +18,8 @@ namespace CommandPattern.Tests
 	    public void CreateOrder()
 	    {
 		    var command = _parser.ParseCommand(new[] { nameof(CreateOrder) });
-
 			Assert.DoesNotThrow(() => command.Execute());
+			Assert.DoesNotThrow(() => command.Undo());
 		}
 
 	    [Test]
@@ -28,7 +28,8 @@ namespace CommandPattern.Tests
 		    var command = _parser.ParseCommand(new [] {nameof(UpdateQuantity), "20"});
 
 		    Assert.DoesNotThrow(() => command.Execute());
-	    }
+		    Assert.DoesNotThrow(() => command.Undo());
+		}
 
 	    [Test]
 	    public void ShipOrder()
@@ -36,6 +37,7 @@ namespace CommandPattern.Tests
 		    var command = _parser.ParseCommand(new[] { nameof(ShipOrder) });
 
 			Assert.DoesNotThrow(() => command.Execute());
+		    Assert.DoesNotThrow(() => command.Undo());
 		}
 
 		[Test]
@@ -44,6 +46,7 @@ namespace CommandPattern.Tests
 		    var command = _parser.ParseCommand(new[] { "ThisCommandDoesNotExist" });
 
 			Assert.DoesNotThrow(() => command.Execute());
+		    Assert.DoesNotThrow(() => command.Undo());
 		}
     }
 }

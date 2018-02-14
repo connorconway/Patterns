@@ -4,16 +4,25 @@ namespace CommandPattern.Library.Commands
 {
 	public class UpdateQuantityCommand : ICommand, ICommandFactory
 	{
-		public int NewQuantity { get; set; }
+		private int NewQuantity { get; set; }
+		private const int OldQuantity = 5;
 
 		public void Execute()
 		{
 			//Simulate updating a database
-			const int oldQuantity = 5;
 			Console.WriteLine("DATABASE: Updated");
 
 			//Simulate logging
-			Console.WriteLine($"LOG: Updated order quantity from {oldQuantity} to {NewQuantity}");
+			Console.WriteLine($"LOG: Updated order quantity from {OldQuantity} to {NewQuantity}");
+		}
+
+		public void Undo()
+		{
+			//Simulate reverting a database
+			Console.WriteLine("DATABASE: Reverted");
+
+			//Simulate logging
+			Console.WriteLine($"LOG: Reverted order quantity to {OldQuantity}");
 		}
 
 		public string CommandName => "UpdateQuantity";

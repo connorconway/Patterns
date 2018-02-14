@@ -9,6 +9,11 @@ namespace CommandPattern.Library.Commands
 			Console.WriteLine("Could not find command: " + CommandName);
 		}
 
+		public void Undo()
+		{
+			Console.WriteLine("Could not undo command: " + CommandName);
+		}
+
 		public string CommandName{ get; set; }
 	}
 }

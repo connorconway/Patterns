@@ -4,6 +4,6 @@
 	{
 		//void Validate();
 		void Execute();
-		//void Undo();
+		void Undo();
 	}
 }
