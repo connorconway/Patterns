@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CompositePattern.Library;
 using CompositePattern.Model;
 using NUnit.Framework;
 
@@ -25,7 +26,10 @@ namespace CompositePattern.Tests
 		    var mages = new Team { Name = "Mages", Members = { mickey, donald, goofy } };
 		    _individuals = new List<Player> { daisy, peach };
 		    _groups = new List<Team> { mages };
-		    _totalToSplitBy = _individuals.Count + _groups.Count;
+
+			var game = new Game(_individuals, _groups);
+
+			_totalToSplitBy = _individuals.Count + _groups.Count;
 		    _amountForEach = _goldForKill / _totalToSplitBy;
 		}
 
