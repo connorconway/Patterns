@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CompositePattern.Library;
 using CompositePattern.Model;
 using NUnit.Framework;
@@ -13,6 +14,7 @@ namespace CompositePattern.Tests
 	    private List<Team> _groups;
 	    private int _totalToSplitBy;
 	    private int _amountForEach;
+	    private List<IParty> _parties;
 
 	    [SetUp]
 	    public void SetUp()
@@ -24,43 +26,23 @@ namespace CompositePattern.Tests
 		    var daisy = new Player { Name = "Daisy" };
 		    var peach = new Player { Name = "Peach" };
 		    var mages = new Team { Name = "Mages", Members = { mickey, donald, goofy } };
-		    _individuals = new List<Player> { daisy, peach };
-		    _groups = new List<Team> { mages };
 
-			var game = new Game(_individuals, _groups);
+		    _parties = new List<IParty> { mages, daisy, peach };
 
-			_totalToSplitBy = _individuals.Count + _groups.Count;
+		    _totalToSplitBy = _parties.Count;
 		    _amountForEach = _goldForKill / _totalToSplitBy;
 		}
 
 	    [Test]
-	    public void IndividualPlayersStats()
+	    public void PartyStats()
 	    {
 		    var leftOver = _goldForKill % _totalToSplitBy;
 
-		    foreach (var individual in _individuals)
+		    foreach (var member in _parties)
 		    {
-			    individual.Gold += _amountForEach + leftOver;
+			    member.Gold += _amountForEach + leftOver;
 			    leftOver = 0;
-				Assert.AreEqual(individual.Stats(), $"{individual.Name} : {individual.Gold}");
-		    }
+			}
 	    }
-
-		[Test]
-	    public void GroupPlayerStats()
-	    {
-		    foreach (var group in _groups)
-		    {
-			    var amountForEachGroupMember = _amountForEach / group.Members.Count;
-			    var leftOverForGroup = amountForEachGroupMember % group.Members.Count;
-			    foreach (var member in group.Members)
-			    {
-				    member.Gold += amountForEachGroupMember + leftOverForGroup;
-				    leftOverForGroup = 0;
-				    var stats = member.Stats();
-					Assert.AreEqual(stats, $"{member.Name} : {member.Gold}");
-			    }
-		    }
-		}
     }
 }
