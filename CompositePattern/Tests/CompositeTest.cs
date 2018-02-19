@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using CompositePattern.Library;
-using CompositePattern.Model;
+﻿using CompositePattern.Model;
 using NUnit.Framework;
 
 namespace CompositePattern.Tests
@@ -9,9 +7,7 @@ namespace CompositePattern.Tests
     public class CompositeTest
     {
 	    private int _goldForKill;
-	    private int _totalToSplitBy;
-	    private int _amountForEach;
-	    private List<IParty> _parties;
+	    private Team _root;
 	    private Player _newBowser;
 	    private Player _oldBowser;
 
@@ -28,28 +24,19 @@ namespace CompositePattern.Tests
 		    _newBowser = new Player {Name="NewBowser"};
 
 			var bowsers = new Team {Members = {_oldBowser, _newBowser}};
-		    var mages = new Team { Name = "Mages", Members = { mickey, donald, goofy, bowsers } };
+		    var mages = new Team { Members = { mickey, donald, goofy, bowsers } };
 
-			_parties = new List<IParty> { mages, daisy, peach };
+			_root = new Team { Members = { mages, daisy, peach} };
 
-		    _totalToSplitBy = _parties.Count;
-		    _amountForEach = _goldForKill / _totalToSplitBy;
-		}
+	    }
 
 	    [Test]
 	    public void PartyGold()
 	    {
-		    var leftOver = _goldForKill % _totalToSplitBy;
-
-		    foreach (var member in _parties)
-		    {
-			    member.Gold += _amountForEach + leftOver;
-			    leftOver = 0;
-			}
+		    _root.Gold += _goldForKill;
 
 			Assert.AreEqual(43, _oldBowser.Gold);
 			Assert.AreEqual(43, _newBowser.Gold);
-			Assert.AreEqual(342, _parties[1].Gold);
 	    }
     }
 }

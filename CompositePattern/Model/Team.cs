@@ -6,13 +6,7 @@ namespace CompositePattern.Model
 {
 	public class Team : IParty
 	{
-		public string Name { get; set; }
-		public List<IParty> Members { get; }
-
-		public Team()
-		{
-			Members = new List<IParty>();
-		}
+		public List<IParty> Members { get; set; } = new List<IParty>();
 
 		public int Gold
 		{
