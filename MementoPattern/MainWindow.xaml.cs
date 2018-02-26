@@ -6,11 +6,14 @@ namespace MementoPattern
 {
 	public partial class MainWindow
 	{
-		private readonly Stack<IMemento> _states = new Stack<IMemento>();
+		private readonly Stack<IMemento> _undoStates = new Stack<IMemento>();
+		private readonly Stack<IMemento> _redoStates = new Stack<IMemento>();
+
 		public MainWindow()
 		{
 			InitializeComponent();
 			CommandBindings.Add(new CommandBinding(ApplicationCommands.Undo, OnExecutedCommands));
+			CommandBindings.Add(new CommandBinding(ApplicationCommands.Redo, OnExecutedCommands));
 			UndoableInkCanvasTest.MouseUp += UndoableInkCanvasTest_MouseUp;
 			StoreState();
 		}
@@ -22,29 +25,43 @@ namespace MementoPattern
 
 		private void OnExecutedCommands(object sender, ExecutedRoutedEventArgs e)
 		{
-			var window = (MainWindow) sender;
+			var window = (MainWindow)sender;
 			if (e.Command == ApplicationCommands.Undo)
-			{
 				window.Undo(sender, e);
+			if (e.Command == ApplicationCommands.Redo)
+				window.Redo(sender, e);
+		}
+
+		private void Redo(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
+		{
+			if (_redoStates.Count > 1)
+			{
+				_undoStates.Push(_redoStates.Pop());
+				var lastState = _redoStates.Peek();
+				UndoableInkCanvasTest.SetMemento(lastState);
 			}
+
+			MementoUndoLabel.Content = _undoStates.Count;
+			MementoRedoLabel.Content = _redoStates.Count;
 		}
 
 		private void Undo(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
 		{
-			if (_states.Count > 1)
+			if (_undoStates.Count > 1)
 			{
-				_states.Pop();
-				var lastState = _states.Peek();
+				_redoStates.Push(_undoStates.Pop());
+				var lastState = _undoStates.Peek();
 				UndoableInkCanvasTest.SetMemento(lastState);
 			}
-			MementoLabel.Content = _states.Count;
+			MementoUndoLabel.Content = _undoStates.Count;
+			MementoRedoLabel.Content = _redoStates.Count;
 		}
 
 		private void StoreState()
 		{
 			var memento = UndoableInkCanvasTest.CreateMemento();
-			_states.Push(memento);
-			MementoLabel.Content = _states.Count;
+			_undoStates.Push(memento);
+			MementoUndoLabel.Content = _undoStates.Count;
 		}
 	}
 }
