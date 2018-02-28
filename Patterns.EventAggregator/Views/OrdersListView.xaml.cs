@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows.Controls;
-using Patterns.EventAggregator.Library;
+using Patterns.EventAggregator.Events;
 using Patterns.EventAggregator.Model;
 
 namespace Patterns.EventAggregator.Views
 {
 	public partial class OrdersListView
 	{
-		public event EventHandler<OrderEventArgs> OrderSelected;
+		public IEventAggregator EventAggregator { private get; set; }
 
 		public OrdersListView()
 		{
@@ -34,12 +33,8 @@ namespace Patterns.EventAggregator.Views
 
 		private void OrdersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			var handler = OrderSelected;
-			if (handler == null)
-				return;
-
 			var order = (Order)OrdersList.SelectedItem;
-			OrderSelected?.Invoke(this, new OrderEventArgs {Order = order});
+			EventAggregator.Publish(new OrderSelected{Order = order});
 		}
 	}
 }

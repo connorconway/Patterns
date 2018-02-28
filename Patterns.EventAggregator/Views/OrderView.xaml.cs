@@ -1,23 +1,23 @@
-﻿using Patterns.EventAggregator.Library;
-using Patterns.EventAggregator.Model;
+﻿using Patterns.EventAggregator.Events;
 
 namespace Patterns.EventAggregator.Views
 {
-	public partial class OrderView : IOrderView
+	public partial class OrderView : ISubscriber<OrderSelected>, ISubscriber<OrderSaved>
 	{
-		public OrderView()
+		public OrderView(IEventAggregator ea)
 		{
 			InitializeComponent();
+			ea.Subscribe(this);
 		}
 
-		public void OnOrderSelected(Order o)
+		public void OnEvent(OrderSelected e)
 		{
-			Label.Text = $"Order: {o.OrderNumber}";
+			Label.Text = $"Order: {e.Order.OrderNumber}";
 		}
 
-		public void OnOrderSaved(Order o)
+		public void OnEvent(OrderSaved e)
 		{
-			Label.Text = $"Order Saved: {o.OrderNumber}";
+			Label.Text = $"Order Saved: {e.Order.OrderNumber}";
 		}
 	}
 }
