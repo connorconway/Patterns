@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Patterns.EventAggregator.Library;
+using Patterns.EventAggregator.Model;
 
 namespace Patterns.EventAggregator
 {
 	/// <summary>
 	/// Interaction logic for OrderHistory.xaml
 	/// </summary>
-	public partial class OrderHistory : UserControl
+	public partial class OrderHistory : UserControl, IOrderView
 	{
 		public OrderHistory()
 		{
 			InitializeComponent();
+		}
+
+		public void OnOrderSelected(Order o)
+		{
+			this.Label.Text = string.Format("Order History: {0}", o.OrderNumber);
+		}
+
+		public void OnOrderSaved(Order o)
+		{
+			this.Label.Text = string.Format("Order Saved: {0}", o.OrderNumber);
 		}
 	}
 }

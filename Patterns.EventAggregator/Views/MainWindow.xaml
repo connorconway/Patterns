@@ -12,9 +12,10 @@
                 <Button x:Name="New" Width="40">New</Button>
                 <Button x:Name="Save" Width="40">Save</Button>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="500">
+                <local:OrdersListView x:Name="OrderListView"/>
+                <TabControl x:Name="OrderViews" Width="500"/>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Height="500"></StackPanel>
-        <local:OrdersListView x:Name="OrderListView"/>
-        <TabControl x:Name="OrderViews" Width="500"></TabControl>
     </Grid>
 </Window>

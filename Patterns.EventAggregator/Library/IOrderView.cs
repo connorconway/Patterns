@@ -1,4 +1,6 @@
-﻿namespace Patterns.EventAggregator
+﻿using Patterns.EventAggregator.Model;
+
+namespace Patterns.EventAggregator.Library
 {
 	public interface IOrderView
 	{

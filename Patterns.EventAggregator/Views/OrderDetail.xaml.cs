@@ -12,33 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Patterns.EventAggregator.Library;
+using Patterns.EventAggregator.Model;
 
 namespace Patterns.EventAggregator
 {
 	/// <summary>
-	/// Interaction logic for OrderView.xaml
+	/// Interaction logic for OrderDetail.xaml
 	/// </summary>
-	public partial class OrderView : UserControl, IOrderView
+	public partial class OrderDetail : UserControl, IOrderView
 	{
-		public OrderView()
+		public OrderDetail()
 		{
 			InitializeComponent();
 		}
 
-		public void OnOrderSelected(Order order)
+		public void OnOrderSelected(Order o)
 		{
-			this.Label.Content = string.Format($"Order: {order.OrderNumber}");
+			this.Label.Text = string.Format("Order Detail: {0}", o.OrderNumber);
 		}
 
-		public void OnOrderSaved(Order order)
+		public void OnOrderSaved(Order o)
 		{
-			this.Label.Content = string.Format($"Order Saved: {order.OrderNumber}");
+			this.Label.Text = string.Format("Order Saved: {0}", o.OrderNumber);
 		}
-	}
-
-	public class Order
-	{
-		public string OrderNumber { get; set; }
-		public string Description { get; set; }
 	}
 }

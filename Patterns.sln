@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePattern", "Composi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MementoPattern", "MementoPattern\MementoPattern.csproj", "{E9629B9A-F2F0-468C-B620-691C3FAE8CF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.EventAggregator", "Patterns.EventAggregator\Patterns.EventAggregator.csproj", "{88B69E43-A4D9-463F-BFF5-EF31A9273688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{E9629B9A-F2F0-468C-B620-691C3FAE8CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9629B9A-F2F0-468C-B620-691C3FAE8CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9629B9A-F2F0-468C-B620-691C3FAE8CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B69E43-A4D9-463F-BFF5-EF31A9273688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B69E43-A4D9-463F-BFF5-EF31A9273688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B69E43-A4D9-463F-BFF5-EF31A9273688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B69E43-A4D9-463F-BFF5-EF31A9273688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

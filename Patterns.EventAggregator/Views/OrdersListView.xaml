@@ -6,7 +6,12 @@
              xmlns:local="clr-namespace:Patterns.EventAggregator"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+    <StackPanel>
+        <DataGrid x:Name="OrdersList" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order Number" Binding="{Binding OrderNumber}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </UserControl>
