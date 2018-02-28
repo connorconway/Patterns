@@ -5,12 +5,9 @@ using System.Windows.Controls;
 using Patterns.EventAggregator.Library;
 using Patterns.EventAggregator.Model;
 
-namespace Patterns.EventAggregator
+namespace Patterns.EventAggregator.Views
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow
 	{
 		public event EventHandler<OrderEventArgs> OrderCreated;
 		public event EventHandler<OrderEventArgs> OrderSaved;
@@ -23,16 +20,16 @@ namespace Patterns.EventAggregator
 			AddOrderViews();
 			LoadOrders();
 
-			this.New.Click += new RoutedEventHandler(New_Click);
-			this.Save.Click += new RoutedEventHandler(Save_Click);
+			New.Click += New_Click;
+			Save.Click += Save_Click;
 		}
 
 		private void AddOrderViews()
 		{
 			var tabs = this.OrderViews.Items;
-			tabs.Add(new TabItem() { Header = "Header", Content = new OrderView() });
-			tabs.Add(new TabItem() { Header = "Detail", Content = new OrderDetail() });
-			tabs.Add(new TabItem() { Header = "Order History", Content = new OrderHistory() });
+			tabs.Add(new TabItem { Header = "Header", Content = new OrderView() });
+			tabs.Add(new TabItem { Header = "Detail", Content = new OrderDetail() });
+			tabs.Add(new TabItem { Header = "Order History", Content = new OrderHistory() });
 
 			foreach (TabItem tab in tabs)
 			{
@@ -45,14 +42,16 @@ namespace Patterns.EventAggregator
 
 		private void LoadOrders()
 		{
-			_orders = new ObservableCollection<Order>();
-			_orders.Add(new Order { OrderNumber = "1000", Description = "An Order" });
-			_orders.Add(new Order { OrderNumber = "2000", Description = "Another Order" });
-			_orders.Add(new Order { OrderNumber = "3000", Description = "Yet Another Order" });
+			_orders = new ObservableCollection<Order>
+			{
+				new Order {OrderNumber = "1000", Description = "An Order"},
+				new Order {OrderNumber = "2000", Description = "Another Order"},
+				new Order {OrderNumber = "3000", Description = "Yet Another Order"}
+			};
 			OrderListView.SetOrders(_orders);
 		}
 
-		void New_Click(object sender, RoutedEventArgs e)
+		private void New_Click(object sender, RoutedEventArgs e)
 		{
 			var order = new Order { Description = "New Order", OrderNumber = "New ID: 1" };
 			_orders.Add(order);
@@ -62,10 +61,10 @@ namespace Patterns.EventAggregator
 			if (handler == null)
 				return;
 
-			OrderCreated(this, new OrderEventArgs { Order = order });
+			OrderCreated?.Invoke(this, new OrderEventArgs {Order = order});
 		}
 
-		void Save_Click(object sender, RoutedEventArgs e)
+		private void Save_Click(object sender, RoutedEventArgs e)
 		{
 			var handler = OrderSaved;
 			if (handler == null)
@@ -73,8 +72,7 @@ namespace Patterns.EventAggregator
 
 			var order = (Order)this.OrderListView.OrdersList.SelectedItem;
 
-			OrderSaved(this, new OrderEventArgs { Order = order });
-
+			OrderSaved?.Invoke(this, new OrderEventArgs {Order = order});
 		}
 	}
 }

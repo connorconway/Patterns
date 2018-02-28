@@ -1,9 +1,10 @@
-﻿<Window x:Class="Patterns.EventAggregator.MainWindow"
+﻿<Window x:Class="Patterns.EventAggregator.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Patterns.EventAggregator"
+        xmlns:views="clr-namespace:Patterns.EventAggregator.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid x:Name="LayoutRoot" Background="White">
@@ -13,7 +14,7 @@
                 <Button x:Name="Save" Width="40">Save</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="500">
-                <local:OrdersListView x:Name="OrderListView"/>
+                <views:OrdersListView x:Name="OrderListView"/>
                 <TabControl x:Name="OrderViews" Width="500"/>
             </StackPanel>
         </StackPanel>
