@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Library\Decorators\Cheese.cs" />
+    <Compile Include="Library\Decorators\Ham.cs" />
+    <Compile Include="Library\Decorators\Peppers.cs" />
     <Compile Include="Library\Decorators\PizzaDecorator.cs" />
     <Compile Include="Library\LargePizza.cs" />
     <Compile Include="Library\MediumPizza.cs" />

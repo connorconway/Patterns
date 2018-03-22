@@ -40,5 +40,15 @@ namespace DecoratorPattern.Tests
 			Assert.AreEqual("Medium Pizza, Cheese Topping", pizza.Description());
 			Assert.AreEqual(7.25, pizza.Cost());
 		}
+
+		[Test]
+		public void LargePizzaWithCheeseAndHam()
+		{
+			Pizza pizza = new LargePizza();
+			pizza = new Cheese(pizza);
+			pizza = new Ham(pizza);
+			Assert.AreEqual("Large Pizza, Cheese Topping, Ham Topping", pizza.Description());
+			Assert.AreEqual(11.75, pizza.Cost());
+		}
 	}
 }
