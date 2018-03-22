@@ -1,8 +1,10 @@
 ﻿namespace DecoratorPattern.Model
 {
-	public interface IPizza
+	public abstract class Pizza
 	{
-		string Description();
-		double Cost();
+		private string _description;
+
+		public abstract string Description();
+		public abstract double Cost();
 	}
 }

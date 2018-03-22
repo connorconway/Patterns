@@ -2,7 +2,7 @@
 
 namespace DecoratorPattern.Library
 {
-	public class SmallPizza : IPizza
+	public class SmallPizza : Pizza
 	{
 		private readonly string _description;
 
@@ -11,8 +11,8 @@ namespace DecoratorPattern.Library
 			_description = "Small Pizza";
 		}
 
-		public string Description() => _description;
+		public override string Description() => _description;
 
-		public double Cost() => 3.00;
+		public override double Cost() => 3.00;
 	}
 }

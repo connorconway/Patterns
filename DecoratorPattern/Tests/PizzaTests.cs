@@ -1,4 +1,6 @@
 ﻿using DecoratorPattern.Library;
+using DecoratorPattern.Library.Decorators;
+using DecoratorPattern.Model;
 using NUnit.Framework;
 
 namespace DecoratorPattern.Tests
@@ -28,6 +30,15 @@ namespace DecoratorPattern.Tests
 			var pizza = new LargePizza();
 			Assert.AreEqual(pizza.Description(), "Large Pizza");
 			Assert.AreEqual(pizza.Cost(), 9.00);
+		}
+
+		[Test]
+		public void MediumPizzaWithCheese()
+		{
+			Pizza pizza = new MediumPizza();
+			pizza = new Cheese(pizza);
+			Assert.AreEqual("Medium Pizza, Cheese Topping", pizza.Description());
+			Assert.AreEqual(7.25, pizza.Cost());
 		}
 	}
 }
