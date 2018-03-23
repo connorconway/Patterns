@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using FlyweightPattern.Library;
 using FlyweightPattern.Model;
 using NUnit.Framework;
@@ -10,14 +9,22 @@ namespace FlyweightPattern.Tests
 	public class TilesTests
 	{
 		private readonly Random _rand = new Random();
+		private FakeGraphicsAdapter _graphics;
+
+		[SetUp]
+		public void SetUp()
+		{
+			_graphics = new FakeGraphicsAdapter();
+		}
 
 		[Test]
 		public void Draw_CeramicTile()
 		{
+			
 			for (var i = 0; i < 20; i++)
 			{
-				ITile tile = new CeramicTile(x: RandomNumber, y: RandomNumber, width: RandomNumber, height: RandomNumber);
-				tile.Draw(new FakeGraphicsAdapter());
+				var tile = TileFactory.GetTile(TileType.Ceramic);
+				tile.Draw(_graphics, x: RandomNumber, y: RandomNumber, width: RandomNumber, height: RandomNumber);
 			}
 		}
 
@@ -26,8 +33,8 @@ namespace FlyweightPattern.Tests
 		{
 			for (var i = 0; i < 20; i++)
 			{
-				ITile tile = new StoneTile(x: RandomNumber, y: RandomNumber, width: RandomNumber, height: RandomNumber);
-				tile.Draw(new FakeGraphicsAdapter());
+				var tile = TileFactory.GetTile(TileType.Stone);
+				tile.Draw(_graphics, x: RandomNumber, y: RandomNumber, width: RandomNumber, height: RandomNumber);
 			}
 		}
 
