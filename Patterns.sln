@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyweightPattern", "Flyweig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterpreterPattern", "InterpreterPattern\InterpreterPattern.csproj", "{721D7B0D-7276-4A97-949F-5AA1D32A3D8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcingPattern", "EventSourcingPattern\EventSourcingPattern.csproj", "{056FAB4C-9600-4965-A9AF-9C12A309F30C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{721D7B0D-7276-4A97-949F-5AA1D32A3D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{721D7B0D-7276-4A97-949F-5AA1D32A3D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{721D7B0D-7276-4A97-949F-5AA1D32A3D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056FAB4C-9600-4965-A9AF-9C12A309F30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056FAB4C-9600-4965-A9AF-9C12A309F30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056FAB4C-9600-4965-A9AF-9C12A309F30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056FAB4C-9600-4965-A9AF-9C12A309F30C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
